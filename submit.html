@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User Details</title>
+</head>
+<body>
+  <h2>User Details</h2>
+  <p><strong>Name:</strong> <span id="name"></span></p>
+  <p><strong>Email:</strong> <span id="email"></span></p>
+  <p><strong>Password:</strong> <span id="password"></span></p>
+  <p><strong>Gender:</strong> <span id="gender"></span></p>
+  <p><strong>Hobbies:</strong> <span id="hobbies"></span></p>
+  <p><strong>Country:</strong> <span id="country"></span></p>
+  <p><strong>Message:</strong> <span id="message"></span></p>
+
+  <script>
+    document.getElementById("name").innerHTML = sessionStorage.getItem("name");
+    document.getElementById("email").innerHTML= sessionStorage.getItem("email");
+    document.getElementById("password").innerHTML = sessionStorage.getItem("password");
+    document.getElementById("gender").innerHTML= sessionStorage.getItem("gender");
+    document.getElementById("hobbies").innerHTML = sessionStorage.getItem("hobbies");
+    document.getElementById("country").innerHTML = sessionStorage.getItem("country");
+    document.getElementById("message").innerHTML = sessionStorage.getItem("message");
+  </script>
+</body>
+</html>

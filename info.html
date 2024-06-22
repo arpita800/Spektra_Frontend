@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Details Form</title>
+</head>
+<body>
+  <h2>User Details Form</h2>
+  <form id="userForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <label for="gender">Gender:</label><br>
+    <input type="radio" id="male" name="gender" value="male" required>
+    <label for="male">Male</label><br>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label><br><br>
+
+    <label for="hobbies">Hobbies:</label><br>
+    <input type="checkbox" id="hobby1" name="hobbies" value="reading">
+    <label for="hobby1">Reading</label><br>
+    <input type="checkbox" id="hobby2" name="hobbies" value="traveling">
+    <label for="hobby2">Traveling</label><br>
+    <input type="checkbox" id="hobby3" name="hobbies" value="sports">
+    <label for="hobby3">Sports</label><br><br>
+
+    <label for="country">Country:</label>
+    <select id="country" name="country">
+      <option value="usa">USA</option>
+      <option value="uk">UK</option>
+      <option value="canada">Canada</option>
+    </select><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+
+    <button type="button" id="submitBtn">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById("submitBtn").addEventListener("click", function() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var gender = document.querySelector('input[name="gender"]:checked').value;
+    var hobbies = [];
+      document.querySelectorAll('input[name="hobbies"]:checked').forEach(function(checkbox) {
+        hobbies.push(checkbox.value);
+      });
+      var country = document.getElementById("country").value;
+      var message = document.getElementById("message").value;
+
+      sessionStorage.setItem("name", name);
+      sessionStorage.setItem("email", email);
+      sessionStorage.setItem("password", password);
+      sessionStorage.setItem("gender", gender);
+      sessionStorage.setItem("hobbies", hobbies.join(", "));
+      sessionStorage.setItem("country", country);
+      sessionStorage.setItem("message", message);
+
+      window.location.href = "submit.html";
+    });
+  </script>
+</body>
+</html>
